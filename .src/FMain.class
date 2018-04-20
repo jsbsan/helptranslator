@@ -19,7 +19,7 @@ End
 
 Public Sub LabelURL_MouseDown()
 
-  Desktop.Open("http://jsbsan.blogspot.com.es/")
+  Desktop.Open("http://jsbsan.blogspot.com.es/2016/10/nueva-version-helptranslator-009.html")
 
 End
 
@@ -239,7 +239,7 @@ End
 
 Public Sub ButtonWebTraduccion_Click()
 
-  Desktop.Open("https://translate.google.com/")
+  Desktop.Open(ComboBoxElegirPaginaTraductor.text)
 
 End
 
@@ -334,5 +334,9 @@ Public Sub ButtonFrances_Click()
 
   Settings["Inicio"] = "fr"
   Message.Info(("El proximo inicio del programa, estará traducido al frances"))
+
+End
+
+Public Sub Panel2_MouseDown()
 
 End

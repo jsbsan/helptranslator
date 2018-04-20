@@ -27,8 +27,8 @@ MakeName=True
 
 [OpenFile]
 File[1]=".src/FMain.form"
-Active=1
-File[2]=".src/FMain.class:3.257"
+Active=2
+File[2]=".src/FMain.class:0.240"
 File[3]=".src/ModuleMain.module:4.2"
 File[4]=".hidden/CHANGELOG:0.0"
 File[5]="en.po:6.0"

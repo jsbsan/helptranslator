@@ -1,9 +1,9 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.9.1
+# Compiled with Gambas 3.10.0
 Title=Helptranslator
 Startup=ModuleMain
 Icon=Google Translate.png
-Version=0.1.16
+Version=0.1.17
 Component=gb.image
 Component=gb.qt4
 Component=gb.form

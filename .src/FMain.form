@@ -2,6 +2,7 @@
 
 { Form Form
   MoveScaled(0,0,114,85)
+  #Translate = False
   Icon = Picture["Google Translate.png"]
   Arrangement = Arrange.Fill
   { Panel3 Panel
@@ -11,7 +12,7 @@
     { Panel2 Panel
       MoveScaled(0,0,113,51)
       { ButtonWebTraduccion Button
-        MoveScaled(81,32,12,13)
+        MoveScaled(86,33,7,6)
         ToolTip = ("ir a https://translate.google.com/")
         Picture = Picture["Google Translate.png"]
       }
@@ -151,6 +152,12 @@
         MoveScaled(99,12,9,6)
         Picture = Picture["Flag_of_France.svg.png"]
       }
+      { ComboBoxElegirPaginaTraductor ComboBox
+        MoveScaled(62,40,31,3)
+        Font = Font["Bold,Italic,-2"]
+        List = [("https://translate.google.com/"), ("https://www.deepl.com/translator")]
+        Text = ("https://translate.google.com/")
+      }
     }
     { TextEditorContenidoTraducido TextEditor
       MoveScaled(3,51,30,6)
@@ -162,24 +169,24 @@
     { Panel1 Panel
       MoveScaled(0,58,112,26)
       { Label8 TextLabel
-        MoveScaled(3,6,31,4)
+        MoveScaled(4,10,31,4)
         Text = ("Paso 6: Pulsa el botón :")
       }
       { CheckBoxBorradoFrasesTraducidas CheckBox
-        MoveScaled(12.7143,9.8571,50,3)
+        MoveScaled(13,14,50,3)
         Text = ("Borrar frases que estuvieran traducidas")
       }
       { Label5 Label
-        MoveScaled(3,14,70,4)
+        MoveScaled(4,18,70,4)
         Text = ("Paso 7: Al fichero .po se le ha añadido la traducción.")
       }
       { ButtonAddTraduccion Button
-        MoveScaled(43,3,29,6)
+        MoveScaled(43,8,29,6)
         Text = ("Añadir traducción")
         Picture = Picture["icon:/22/language"]
       }
       { LabelURL Label
-        MoveScaled(23.8571,19,52,5)
+        MoveScaled(27,23,52,2)
         Font = Font["Underline"]
         Foreground = &H007FFF&
         Text = ("Visite mi blog: jsbsan.blogspot.com")
