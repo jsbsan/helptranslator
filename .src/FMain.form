@@ -1,0 +1,195 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,114,85)
+  Icon = Picture["Google Translate.png"]
+  Arrangement = Arrange.Fill
+  { Panel3 Panel
+    MoveScaled(0,0,118,84)
+    Expand = True
+    Arrangement = Arrange.Vertical
+    { Panel2 Panel
+      MoveScaled(0,0,113,51)
+      { ButtonWebTraduccion Button
+        MoveScaled(81,32,12,13)
+        ToolTip = ("ir a https://translate.google.com/")
+        Picture = Picture["Google Translate.png"]
+      }
+      { FrameLotes Frame
+        MoveScaled(94,24,18,25)
+        Background = &H6FDFDF&
+        Text = ("Lotes")
+        { ButtonLote1 Button botonlote
+          Name = "ButtonLote1"
+          MoveScaled(2,11,5,5)
+          Tag = "1"
+          Text = ("1")
+          Picture = Picture["helptranslator1616.png"]
+        }
+        { ButtonLote2 Button botonlote
+          Name = "ButtonLote2"
+          MoveScaled(7,11,5,5)
+          Tag = "2"
+          Text = ("2")
+          Picture = Picture["helptranslator1616.png"]
+        }
+        { ButtonLote3 Button botonlote
+          Name = "ButtonLote3"
+          MoveScaled(12,11,5,5)
+          Tag = "3"
+          Text = ("3")
+          Picture = Picture["helptranslator1616.png"]
+        }
+        { ButtonLote4 Button botonlote
+          Name = "ButtonLote4"
+          MoveScaled(2,17,5,5)
+          Tag = "4"
+          Text = ("4")
+          Picture = Picture["helptranslator1616.png"]
+        }
+        { ButtonLote5 Button botonlote
+          Name = "ButtonLote5"
+          MoveScaled(7,17,5,5)
+          Tag = "5"
+          Text = ("5")
+          Picture = Picture["helptranslator1616.png"]
+        }
+        { ButtonLote6 Button botonlote
+          Name = "ButtonLote6"
+          MoveScaled(12,17,5,5)
+          Tag = "6"
+          Text = ("6")
+          Picture = Picture["helptranslator1616.png"]
+        }
+        { ValueBoxSize ValueBox
+          MoveScaled(6,6,11,3)
+          Text = ("30")
+        }
+        { Label12 Label
+          MoveScaled(2,3,14,3)
+          Text = ("Tamaño lote:")
+        }
+      }
+      { Label10 TextLabel
+        MoveScaled(3,47,40,3)
+        Text = ("Paso 5: Pegue el texto en este textbox:")
+      }
+      { ButtonPegarPortapapelesATexContenidoEditor Button
+        MoveScaled(43,46,5,5)
+        ToolTip = ("añadir el  contenido del portapapeles")
+        Picture = Picture["icon:/22/paste"]
+      }
+      { Label7 TextLabel
+        MoveScaled(3,42,74,5)
+        Text = ("Paso 4: Selecciona y copia en el portapapeles, el texto traducido.")
+      }
+      { Label6 TextLabel
+        MoveScaled(3,32,75,10)
+        Text = ("Paso 3: En el portapapeles se ha pegado las cadenas que hay que traducir. Ve a la página de google traduce, elige el idioma de origen y el idioma destino y pega el contenido  del portapapeles (en la caja de idioma origen) . Pulsar traducir")
+      }
+      { ButtonExtraerCadenas Button
+        MoveScaled(41,26,29,5)
+        Text = ("Extraigo cadenas")
+        Picture = Picture["icon:/22/exec"]
+      }
+      { labellineas Label
+        MoveScaled(71,27,13,4)
+        AutoResize = True
+        Text = ("Lineas: 0")
+      }
+      { Label4 Label
+        MoveScaled(3,25,37,6)
+        Text = ("Paso 2: Extraer Cadenas traducibles")
+      }
+      { Label3 Label
+        MoveScaled(3,19,37,6)
+        Text = ("Paso 1: elige el archivo idioma .po")
+      }
+      { ButtonBoxFicheroPO ButtonBox
+        MoveScaled(41,19,37,5)
+        ToolTip = ("El archivo .po estará en la carpeta oculta .lang")
+      }
+      { Label9 TextLabel
+        MoveScaled(5,10,86,6)
+        Text = ("Paso 0: crear el archivo .po. En gambas se va al menu Proyecto / Traducir se elige un idioma y se traduce una frase para que se cree el archivo .po del idioma elegido.")
+      }
+      { Label2 Label
+        MoveScaled(26,5,58,4)
+        Text = ("Autor: Julio Sánchez Berro Licencia GPL 2.0")
+        Alignment = Align.Center
+      }
+      { Label1 Label
+        MoveScaled(22,0,80,5)
+        Font = Font["Arial,10"]
+        Text = ("Herramienta para ayudar a traducir aplicaciones con fichero *.po")
+        Alignment = Align.Center
+      }
+      { ButtonSpain Button
+        MoveScaled(99,6,9,6)
+        Picture = Picture["spain.png"]
+      }
+      { ButtonInglesa Button
+        MoveScaled(99,0,9,6)
+        Picture = Picture["bandera inglesa.png"]
+      }
+      { Labelversion Label
+        MoveScaled(3,5,21,4)
+        Alignment = Align.Center
+      }
+      { Label11 Label
+        MoveScaled(0,0,32,6)
+        Font = Font["aakar,Italic,Underline,+6"]
+        Text = ("HelpTranslator")
+        Alignment = Align.Center
+      }
+      { ButtonBorrarContenido Button
+        MoveScaled(54,46,5,5)
+        ToolTip = ("borrar el contenido")
+        Picture = Picture["icon:/22/clear"]
+      }
+      { ButtonFrances Button
+        MoveScaled(99,12,9,6)
+        Picture = Picture["Flag_of_France.svg.png"]
+      }
+    }
+    { TextEditorContenidoTraducido TextEditor
+      MoveScaled(3,51,30,6)
+      Background = &HFFFF00&
+      Expand = True
+      ReadOnly = True
+      ShowLineNumber = True
+    }
+    { Panel1 Panel
+      MoveScaled(0,58,112,26)
+      { Label8 TextLabel
+        MoveScaled(3,6,31,4)
+        Text = ("Paso 6: Pulsa el botón :")
+      }
+      { CheckBoxBorradoFrasesTraducidas CheckBox
+        MoveScaled(12.7143,9.8571,50,3)
+        Text = ("Borrar frases que estuvieran traducidas")
+      }
+      { Label5 Label
+        MoveScaled(3,14,70,4)
+        Text = ("Paso 7: Al fichero .po se le ha añadido la traducción.")
+      }
+      { ButtonAddTraduccion Button
+        MoveScaled(43,3,29,6)
+        Text = ("Añadir traducción")
+        Picture = Picture["icon:/22/language"]
+      }
+      { LabelURL Label
+        MoveScaled(23.8571,19,52,5)
+        Font = Font["Underline"]
+        Foreground = &H007FFF&
+        Text = ("Visite mi blog: jsbsan.blogspot.com")
+        Alignment = Align.Center
+      }
+      { PictureBox1 PictureBox
+        MoveScaled(93,2,12,22)
+        Picture = Picture["powered by gambas.png"]
+        Stretch = True
+      }
+    }
+  }
+}

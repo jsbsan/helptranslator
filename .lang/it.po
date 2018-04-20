@@ -1,0 +1,124 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-11-01 04:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .project:1
+msgid "Helptranslator"
+msgstr ""
+
+#: .project:2
+msgid "Sencilla herramienta que ayuda a traducir aplicaciones, usando los ficheros .po"
+msgstr "Semplice strumento che aiuta a tradurre le applicazioni, l'utilizzo di file .po"
+
+#: FMain.class:13
+msgid "Version"
+msgstr "Versione"
+
+#: FMain.class:26
+msgid "fichero de traduccion po"
+msgstr "il file di traduzione po"
+
+#: FMain.class:37
+msgid "Hay un problema al intentar abrir el archivo .po, parece que no existe"
+msgstr "C'è un problema quando si cerca di aprire il file .po, sembra che ci"
+
+#: FMain.class:78
+msgid "El texto a traducir esta cargado en el portapapeles"
+msgstr "Il testo da tradurre viene caricato nella clipboard"
+
+#: FMain.class:96
+msgid "El textbox con las traducciones esta vacio :("
+msgstr "La casella di testo con la traduzione è vuoto :("
+
+#: FMain.class:117
+msgid "Ha habido un problema con las cadenas de texto que tengo que traducir ¿te has saltado algun paso?"
+msgstr "C'è stato un problema con le stringhe che devo tradurre avere saltato ogni passo?"
+
+#: FMain.class:157
+msgid "Se han añadido las traducciones. Ahora compruebe la traducción porque Google no es perfecto :) !!!"
+msgstr "Sono state aggiunte le traduzioni. Ora controllare la traduzione, perché Google non è perfetto :) !!!"
+
+#: FMain.class:176
+msgid "El proximo inicio del programa, estará traducido al inglés"
+msgstr "Il prossimo avvio del programma sarà tradotto in inglese"
+
+#: FMain.class:183
+msgid "El proximo inicio del programa, estará traducido al español"
+msgstr "Il prossimo avvio del programma sarà tradotto in spagnolo"
+
+#: FMain.form:33
+msgid "Autor: Julio Sánchez Berro Licencia GPL 2.0"
+msgstr "Autore: Julio Sanchez Berro GPL License 2.0"
+
+#: FMain.form:39
+msgid "Paso 1: elige el archivo idioma .po"
+msgstr "Passo 1: scegli il file .po lingua"
+
+#: FMain.form:44
+msgid "El archivo .po estará en la carpeta oculta .lang"
+msgstr "Il file .po sarà nella cartella nascosta lang"
+
+#: FMain.form:49
+msgid "Paso 2: Extraer Cadenas traducibles"
+msgstr "Step 2: Estrarre Catene traducibili"
+
+#: FMain.form:54
+msgid "Extraigo cadenas"
+msgstr "Stringhe Estratto"
+
+#: FMain.form:60
+msgid "Paso 3: En el portapapeles se ha pegado las cadenas que hay que traducir. Ve a la página de google traduce, elige el idioma de origen y el idioma destino y pega el contenido  del portapapeles (en la caja de idioma origen) . Pulsar traducir"
+msgstr "Passo 3: In Appunti ha colpito le stringhe da tradurre. Vai alla pagina di google tradurre, scegli la lingua di partenza e la lingua di destinazione e incollare il contenuto degli appunti (nel caso di origine della lingua). Pulsar tradurre"
+
+#: FMain.form:65
+msgid "Paso 4: Selecciona y copia en el portapapeles, el texto traducido."
+msgstr "Passo 4: Selezionare e copiare negli appunti il ​​testo tradotto."
+
+#: FMain.form:76
+msgid "Paso 6: Pulsa el botón :"
+msgstr "Punto 6: Premete il tasto:"
+
+#: FMain.form:81
+msgid "Añadir traducción"
+msgstr "Aggiungi traduzione"
+
+#: FMain.form:87
+msgid "Paso 7: Al fichero .po se le ha añadido la traducción."
+msgstr "Passo 7: Quando .po file è stato aggiunto traduzione."
+
+#: FMain.form:94
+msgid "Visite mi blog: jsbsan.blogspot.com"
+msgstr "Visita il mio blog: jsbsan.blogspot.com"
+
+#: FMain.form:100
+msgid "Paso 0: crear el archivo .po. En gambas se va al menu Proyecto / Traducir se elige un idioma y se traduce una frase para que se cree el archivo .po del idioma elegido."
+msgstr "Fase 0: creare il file .po. In gamberi si va al menu Progetto / Tradurre una lingua viene scelta e una frase è tradotta .po file viene creato la lingua scelta."
+
+#: FMain.form:105
+msgid "Borrar frases que estuvieran traducidas"
+msgstr "Cancella le frasi che sono state tradotte"
+
+#: FMain.form:111
+msgid "ir a https://translate.google.com/"
+msgstr "vai a https://translate.google.com/"
+
+#: FMain.form:117
+msgid "Paso 5: Pegue el texto en este textbox:"
+msgstr "Fase 5: Incollare il testo nella casella di testo:"
+
+#: FMain.form:138
+msgid "HelpTranslator"
+msgstr "HelpTranslator"
+
+#: FMain.form:150
+msgid "Herramienta para ayudar a traducir aplicaciones con fichero *.po"
+msgstr "Strumento per aiutare a tradurre * applicazioni di file .po"

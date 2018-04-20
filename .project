@@ -1,0 +1,37 @@
+# Gambas Project File 3.0
+# Compiled with Gambas 3.9.1
+Title=Helptranslator
+Startup=ModuleMain
+Icon=Google Translate.png
+Version=0.1.16
+Component=gb.image
+Component=gb.qt4
+Component=gb.form
+Component=gb.desktop.x11
+Component=gb.desktop
+Component=gb.eval
+Component=gb.eval.highlight
+Component=gb.form.editor
+Component=gb.settings
+Component=gb.qt4.ext
+Description="Sencilla herramienta que ayuda a traducir aplicaciones, usando los ficheros .po"
+Authors="Julio Sanchez Berro"
+TabSize=2
+Translate=1
+Language=es
+Maintainer=Julio Sánchez Berro
+Vendor=jsbsan
+Address=jusabejusabe@gmail.com
+Url=http://www.jsbsan.blogspot.com
+License=General Public License
+PackageName=helptranslator-0.1.16
+CreateEachDirectory=1
+Packager=1
+Systems=debian
+Menus=debian:"Applications/Programming"
+Categories=debian:"Office;Translation"
+Groups=debian:"admin"
+Tags=Accessibility,Debugger,Development,FileTools,IDE,Languages,Office,Settings
+GambasVersion=3.9
+WebSite=http://jsbsan.blogspot.com.es/2016/10/nueva-version-helptranslator-009.html
+CreateMenu=1

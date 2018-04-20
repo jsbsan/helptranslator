@@ -1,0 +1,195 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: helptranslator 3.9.0\n"
+"PO-Revision-Date: 2016-10-06 18:18 UTC\n"
+"Last-Translator: jsbsan <jusabejusabe@hotmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .project:1
+msgid "Helptranslator"
+msgstr "Helptranslator"
+
+#: .project:2
+msgid "Sencilla herramienta que ayuda a traducir aplicaciones, usando los ficheros .po"
+msgstr "Simple tool that helps translate applications, using .po files"
+
+#: FMain.class:13
+msgid "Version"
+msgstr "Version"
+
+#: FMain.class:26
+msgid "fichero de traduccion po"
+msgstr ".po translation file"
+
+#: FMain.class:37
+msgid "Hay un problema al intentar abrir el archivo .po, parece que no existe"
+msgstr "There is a problem when trying to open the .po file, it appears that there"
+
+#: FMain.class:81
+msgid "Lineas: "
+msgstr "Lines:"
+
+#: FMain.class:85
+msgid "El texto a traducir esta cargado en el portapapeles"
+msgstr "The text to be translated is loaded into the clipboard"
+
+#: FMain.class:130
+msgid "El textbox con las traducciones esta vacio :("
+msgstr "The textbox with translations is empty :("
+
+#: FMain.class:167
+msgid "Ha habido un problema con las cadenas de texto que tengo que traducir ¿te has saltado algun paso?"
+msgstr "There has been a problem with the strings that I have to translate have you skipped any step?"
+
+#: FMain.class:214
+msgid "Se han añadido las traducciones. Ahora compruebe la traducción porque Google no es perfecto :) !!!"
+msgstr "Translations have been added. Now check the translation because Google is not perfect :) !!!"
+
+#: FMain.class:234
+msgid "El proximo inicio del programa, estará traducido al inglés"
+msgstr "The next start of the program will be translated into English"
+
+#: FMain.class:241
+msgid "El proximo inicio del programa, estará traducido al español"
+msgstr "The next start of the program will be translated into Spanish"
+
+#: FMain.class:255
+msgid "Se supera el valor maximo del array existente"
+msgstr "it exceeds the maximum value of the existing array"
+
+#: FMain.class:263
+msgid "intervalor por lote terminado."
+msgstr "finished batch interval"
+
+#: FMain.class:286
+msgid "Se ha producido un error, al extraer el intervalos de valores del array"
+msgstr "There was an error when removing the ranges of values in the array"
+
+#: FMain.class:312
+msgid "El contenido del portapapeles no tiene texto"
+msgstr "the clipboard contents has no text"
+
+#: FMain.class:327
+msgid "El proximo inicio del programa, estará traducido al frances"
+msgstr "Next start of the program will be translated into French"
+
+#: FMain.form:52
+msgid "ir a https://translate.google.com/"
+msgstr "go to https://translate.google.com/"
+
+#: FMain.form:59
+msgid "Lotes"
+msgstr "Lots"
+
+#: FMain.form:65
+msgid "1"
+msgstr "1"
+
+#: FMain.form:73
+msgid "2"
+msgstr "2"
+
+#: FMain.form:81
+msgid "3"
+msgstr "3"
+
+#: FMain.form:89
+msgid "4"
+msgstr "4"
+
+#: FMain.form:97
+msgid "5"
+msgstr "5"
+
+#: FMain.form:105
+msgid "6"
+msgstr "6"
+
+#: FMain.form:111
+msgid "30"
+msgstr "30"
+
+#: FMain.form:116
+msgid "Tamaño lote:"
+msgstr "Lot size:"
+
+#: FMain.form:122
+msgid "Paso 5: Pegue el texto en este textbox:"
+msgstr "Step 5: Paste the text into the textbox:"
+
+#: FMain.form:127
+msgid "añadir el  contenido del portapapeles"
+msgstr "add the contents to the clipboard"
+
+#: FMain.form:133
+msgid "Paso 4: Selecciona y copia en el portapapeles, el texto traducido."
+msgstr "Step 4: Select and copy to the clipboard, the translated text."
+
+#: FMain.form:138
+msgid "Paso 3: En el portapapeles se ha pegado las cadenas que hay que traducir. Ve a la página de google traduce, elige el idioma de origen y el idioma destino y pega el contenido  del portapapeles (en la caja de idioma origen) . Pulsar traducir"
+msgstr "Step 3: In the clipboard has hit the strings to be translated. Go to page of google translate, choose the source language and the target language and paste the clipboard contents (in the case of language origin). Pulsar translate"
+
+#: FMain.form:143
+msgid "Extraigo cadenas"
+msgstr "Extract strings"
+
+#: FMain.form:150
+msgid "Lineas: 0"
+msgstr "Lines: 0"
+
+#: FMain.form:155
+msgid "Paso 2: Extraer Cadenas traducibles"
+msgstr "Step 2: Extract translatable Chains"
+
+#: FMain.form:160
+msgid "Paso 1: elige el archivo idioma .po"
+msgstr "Step 1: choose the language .po file"
+
+#: FMain.form:165
+msgid "El archivo .po estará en la carpeta oculta .lang"
+msgstr "The .po file will be in the hidden folder lang"
+
+#: FMain.form:170
+msgid "Paso 0: crear el archivo .po. En gambas se va al menu Proyecto / Traducir se elige un idioma y se traduce una frase para que se cree el archivo .po del idioma elegido."
+msgstr "Step 0: create the .po file. In prawns you go to menu Project / Translate a language is chosen and a phrase is translated .po file for the chosen language is created."
+
+#: FMain.form:175
+msgid "Autor: Julio Sánchez Berro Licencia GPL 2.0"
+msgstr "Author: Julio Sanchez Berro GPL 2.0 License"
+
+#: FMain.form:182
+msgid "Herramienta para ayudar a traducir aplicaciones con fichero *.po"
+msgstr "Tool to help translate * .po file applications"
+
+#: FMain.form:204
+msgid "HelpTranslator"
+msgstr "HelpTranslator"
+
+#: FMain.form:210
+msgid "borrar el contenido"
+msgstr "delete the content"
+
+#: FMain.form:233
+msgid "Paso 6: Pulsa el botón :"
+msgstr "Step 6: Press the button:"
+
+#: FMain.form:238
+msgid "Borrar frases que estuvieran traducidas"
+msgstr "Clear sentences that were translated"
+
+#: FMain.form:243
+msgid "Paso 7: Al fichero .po se le ha añadido la traducción."
+msgstr "Step 7: When .po file has been added translation."
+
+#: FMain.form:248
+msgid "Añadir traducción"
+msgstr "Add Translation"
+
+#: FMain.form:256
+msgid "Visite mi blog: jsbsan.blogspot.com"
+msgstr "Visit my blog: jsbsan.blogspot.com"
+

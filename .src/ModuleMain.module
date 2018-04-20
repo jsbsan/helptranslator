@@ -1,0 +1,22 @@
+' Gambas module file
+
+Public Sub main()
+
+  If Settings["Inicio"] = "ing" Then
+    ''NOTE: nota o comentario: poner la codificacion en ingles
+    System.Language = "en_US.UTF-8"
+  Endif
+
+  If Settings["Inicio"] = "fr" Then
+    ''NOTE: nota o comentario: poner la codificacion en ingles
+    System.Language = "fr_FR.UTF-8"
+  Endif
+
+  If Settings["Inicio"] = "es" Then
+    ''NOTE: nota o comentario: poner la codificacion en ingles
+    System.Language = "es_ES.UTF-8"
+  Endif
+
+  FMain.Show()
+
+End

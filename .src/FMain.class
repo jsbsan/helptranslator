@@ -1,0 +1,338 @@
+' Gambas class file
+
+Private lineasFichero As String[]
+Private LineasATraducir As String[]
+Private lineasMultiples As String[]
+Private LineasTraducidasPorLotes As Integer
+Private botonesLotesUsados As Boolean = False
+
+Public Sub _new()
+
+End
+
+Public Sub Form_Open()
+
+  Labelversion.text = ("Version") & " " & Application.Version
+  Me.Center
+
+End
+
+Public Sub LabelURL_MouseDown()
+
+  Desktop.Open("http://jsbsan.blogspot.com.es/")
+
+End
+
+Public Sub ButtonBoxFicheroPO_Click()
+
+  Dialog.Filter = ["*.po", ("fichero de traduccion po")]
+  Dialog.ShowHidden = True 'para mostrar las carpetas ocultas
+  If Not Dialog.OpenFile() Then
+    ButtonBoxFicheroPO.text = Dialog.Path
+  Endif
+
+End
+
+Public Sub ButtonExtraerCadenas_Click()
+
+  If Not Exist(ButtonBoxFicheroPO.text) Then
+    Message.Info(("Hay un problema al intentar abrir el archivo .po, parece que no existe"))
+    Return
+  Else
+    procesoDeExtraccion(ButtonBoxFicheroPO.text)
+    TextEditorContenidoTraducido.text = ""
+    ButtonLote1.Enabled = True
+    ButtonLote2.Enabled = True
+    ButtonLote3.Enabled = True
+    ButtonLote4.Enabled = True
+    ButtonLote5.Enabled = True
+    ButtonLote6.Enabled = True
+    LineasTraducidasPorLotes = 0
+    botonesLotesUsados = False
+  Endif
+
+End
+
+Public Sub procesoDeExtraccion(ruta As String)
+
+  Dim contenido As String
+
+  Dim linea As String 'linea del fichero .po
+  Dim frase As String 'frase que habria que traducir
+
+  Dim a As Integer
+
+  LineasATraducir = New String[]
+  lineasMultiples = New String[]
+  contenido = File.Load(ruta)
+
+  lineasFichero = Split(contenido, "\n")
+
+  For a = 0 To lineasFichero.max
+    linea = lineasFichero[a]
+    If InStr(linea, "msgid ") <> 0 And Mid$(linea, 1, 1) <> "#" And (Mid$(linea, 1, Len("msgid_plural")) <> "msgid_plural") Then
+      'linea con texto a traducir
+      frase = Between(linea, "\"", "\"")
+      If IsNull(frase) Then
+        'no hay texto que traducir..., pero lo tengo tengo que tener en cuenta por si la siguiente linea no es la de
+        'posible zona de varias lineas...
+        ' a = compruebaZonaMultipleLineas(a, lineasFichero)
+      Else
+        LineasATraducir.add(frase) 'hay un texto que traducir
+
+      Endif
+    Endif
+  Next
+
+  Clipboard.Clear()
+  Clipboard.Copy(LineasATraducir.Join("\n"))
+
+  LabelLineas.text = ("Lineas: ") & Str$(LineasATraducir.count)
+  ValueBoxSize.value = Int(LineasATraducir.max / 5)
+
+  Message.Info(("El texto a traducir esta cargado en el portapapeles"))
+
+End
+
+Public Sub compruebaZonaMultipleLineas(a As Integer, ArrayFichero As String[]) As Integer
+
+  Dim frase As String
+  Dim inicialA As Integer = a
+  Dim contadorA As Integer = a
+  ''
+  contadorA += 1
+  frase = ArrayFichero[contadorA]
+  While (frase <> "msgstr \"\"")
+    If (Mid$(frase, 1, Len("msgid_plural")) <> "msgid_plural") Then
+      LineasATraducir.add(frase) 'hay un texto que traducir
+    Endif
+    frase = ArrayFichero[contadorA]
+    contadorA += 1
+    frase = ArrayFichero[contadorA]
+  Wend
+
+  If contadorA = (inicialA + 1) Then
+
+    Return inicialA + 1
+  Else
+
+    Return contadorA
+  Endif
+
+End
+
+Private Function Between(Datos As String, Cadena1 As String, Cadena2 As String) As String
+
+  Dim iinf As Integer
+  Dim isup As Integer
+
+  iinf = InStr(Datos, Cadena1) + Len(Cadena1)
+  isup = InStr(Datos, Cadena2, iinf)
+  Return Mid(Datos, iinf, isup - iinf)
+
+End
+
+Public Sub ButtonAddTraduccion_Click()
+
+  If LineasTraducidasPorLotes < LineasATraducir.count And botonesLotesUsados = True Then
+    Message.Info(("Error: No se han traducido todas las lineas, tienes que terminar de traducir todos los lotes"))
+
+    Return
+
+  Endif
+
+  If TextEditorContenidoTraducido.text = "" Then
+    Message.Info(("El textbox con las traducciones esta vacio :("))
+    Return
+  Endif
+
+  agregartraduccion(TextEditorContenidoTraducido.text)
+
+End
+
+Public Sub agregartraduccion(texto As String)
+
+  Dim ERRORES As String
+  Dim comando As String
+  Dim lineasTraducida As String[]
+  Dim a As Integer
+  Dim b As Integer
+  Dim textobuscar As String
+
+  'cambios en \ T por \t y \ N por \n
+  texto = Replace$(texto, "\\ T", "\\t")
+  texto = Replace$(texto, "\\ N", "\\n")
+  texto = Replace$(texto, "\\ t", "\\t")
+  texto = Replace$(texto, "\\ n", "\\n")
+  texto = Replace$(texto, "% s", "%s")
+  texto = Replace$(texto, "% u", "%u")
+  texto = Replace$(texto, "% d", "%d")
+  texto = Replace$(texto, "</ b", "</b")
+  texto = Replace$(texto, "% S", "%s")
+  texto = Replace$(texto, "% U", "%u")
+  texto = Replace$(texto, "% D", "%d")
+  texto = Replace$(texto, "</ B", "</b")
+  texto = Replace$(texto, "<B>", "<b>")
+
+  lineasTraducida = Split(texto, gb.CrLf)
+
+  'buscar cada frase a traducir, y sustituye la siguiente linea donde este por la traduccion.
+
+  If IsNull(LineasATraducir) Or If LineasATraducir.count = 0 Then
+    Message.Info(("Ha habido un problema con las cadenas de texto que tengo que traducir ¿te has saltado algun paso?"))
+    Return
+  Endif
+
+  For a = 0 To LineasATraducir.max
+    'bucle para buscar todas las frases que tengo que traducir....
+    textobuscar = "msgid \"" & LineasATraducir[a] & "\""
+    For b = 0 To lineasFichero.count - 1
+      'bucle para buscar en el fichero .po, si encuentro una linea que tengo que traducir, compruebo si la siguiente
+      'tiene texto. Si tiene texto es posible que ya este traducida, veo si tengo permiso para cambiar al traduccion
+      If textobuscar = lineasFichero[b] Then
+        'comprobaciones...
+        If lineasFichero[b + 1] = "msgstr \"\"" Then
+          'la linea de texto traducido esta vacia... añado traduccion sin problemas :)
+          lineasFichero[b + 1] = "msgstr \"" & lineasTraducida[a] & "\""
+        Else
+          'la linea contiene una traduccion... compruebo si tengo permiso para hacer la traduccion
+          If CheckBoxBorradoFrasesTraducidas.Value = True Then
+            If (Mid$(lineasFichero[b + 1], 1, Len("msgid_plural")) <> "msgid_plural") Then
+              lineasFichero[b + 1] = "msgstr \"" & lineasTraducida[a] & "\""
+            Else
+              'contiene una linea plural... no traducir..
+            Endif
+          Else
+            'no hago nada, no tengo permiso para borrar la traduccion existente :(
+          Endif
+        Endif
+      Endif
+    Next
+  Next
+
+  'El array lineasFichero ya tiene la traduccion añadida...
+
+  File.Save(ButtonBoxFicheroPO.text, lineasFichero.Join("\n"))
+  If Exist(Replace$(ButtonBoxFicheroPO.text, ".po", ".mo")) Then
+    'borro si si existe el archivo .mo
+    Kill Replace$(ButtonBoxFicheroPO.text, ".po", ".mo") 'borrado de fichero compildo del antiguo .po
+  Endif
+
+  'generar el archivo .mo
+  'http://www.thempra.net/2011/09/compilar-de-po-a-mo-y-viceversa/
+  comando = "msgfmt " & buttonBoxFicheroPO.text & " -o " & Replace$(ButtonBoxFicheroPO.text, ".po", ".mo")
+  Shell comando To ERRORES
+
+  If ERRORES <> "" Then
+    Message.Info("EL programa msgfmt a dado la siguiente salida:" & "\n" & ERRORES)
+  Else
+    Message.Info(("Se han añadido las traducciones. Ahora compruebe la traducción porque Google no es perfecto :) !!!"))
+  Endif
+
+End
+
+Public Sub PictureBox1_MouseDown()
+
+  Desktop.Open("http://cursogambas.blogspot.com.es/")
+
+End
+
+Public Sub ButtonWebTraduccion_Click()
+
+  Desktop.Open("https://translate.google.com/")
+
+End
+
+Public Sub ButtonInglesa_Click()
+
+  Settings["Inicio"] = "ing"
+  Message.Info(("El proximo inicio del programa, estará traducido al inglés"))
+
+End
+
+Public Sub ButtonSpain_Click()
+
+  Settings["Inicio"] = "es"
+  Message.Info(("El proximo inicio del programa, estará traducido al español"))
+
+End
+
+Public Sub botonlote_Click()
+
+  'lote a analizar
+  Dim IntervaloInicio As Integer = (Val(Last.tag) - 1) * ValueBoxSize.Value
+  Dim maximo As Integer
+  Dim nuevaslineasAtraducir As String[]
+
+  botonesLotesUsados = True
+  If intervaloInicio >= LineasATraducir.count Then
+    Message.Error(("Se supera el valor maximo del array existente"))
+    Return
+  Endif
+
+  maximo = intervaloInicio + ValueBoxSize.value
+
+  If maximo = intervaloInicio Then
+    Message.Error(("intervalor por lote terminado."))
+    Return
+  Endif
+
+  If maximo >= LineasATraducir.count Then
+    maximo = LineasATraducir.count
+
+  Endif
+
+  Clipboard.Clear()
+
+  Debug "intervalo:", intervaloInicio, maximo - intervaloInicio
+
+  nuevaslineasAtraducir = LineasATraducir.copy(intervaloInicio, maximo - intervaloInicio)
+
+  Try Clipboard.Copy(nuevaslineasAtraducir.Join("\n"))
+
+  If Error Then
+    Message.Info(("Se ha producido un error, al extraer el intervalos de valores del array"))
+  Else
+    'paso al portapaleles el tamaño
+    Desktop.Open("https://translate.google.com/")
+    Last.enabled = False
+    LineasTraducidasPorLotes += maximo - intervaloInicio
+  Endif
+
+End
+
+Public Sub ValueBoxSize_MouseDown()
+
+End
+
+Public Sub ButtonPegarPortapapelesATexContenidoEditor_Click()
+
+  If Clipboard.text = 1 Then
+
+    If TextEditorContenidoTraducido.text <> "" Then
+      TextEditorContenidoTraducido.text &= "\n"
+    Endif
+
+    If Clipboard.Paste("text/plain") = "" Then
+      Message.Info(("El contenido del portapapeles no contiene texto a pegar"))
+    Else
+      TextEditorContenidoTraducido.text &= Clipboard.Paste("text/plain") 'solo pega texto plano v.11
+      Message.Info(("Datos pegados en el textbox"))
+    Endif
+
+  Endif
+
+End
+
+Public Sub ButtonBorrarContenido_Click()
+
+  TextEditorContenidoTraducido.text = "" 'borrado del contenido
+
+End
+
+Public Sub ButtonFrances_Click()
+
+  Settings["Inicio"] = "fr"
+  Message.Info(("El proximo inicio del programa, estará traducido al frances"))
+
+End
